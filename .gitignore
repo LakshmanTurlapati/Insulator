@@ -1,0 +1,8 @@
+# Conductor installer and anything unpacked from it
+/binary/
+*.dmg
+Conductor.app/
+conductor-runtime
+
+# Rust build output
+/app/src-tauri/target/

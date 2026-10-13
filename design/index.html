@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Insulator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="stage" id="stage">
+    <button class="screen-fab" type="button" data-overlay-open="index">Screens <kbd>?</kbd></button>
+
+    <div class="window" id="window" data-layout="chat">
+      <div class="tleft">
+        <div class="traffic" aria-hidden="true"><i class="r"></i><i class="y"></i><i class="g"></i></div>
+        <button class="icon-btn" type="button" data-action="toggle-side" aria-label="Toggle sidebar">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/></svg>
+        </button>
+        <span class="spacer"></span>
+      </div>
+
+      <div class="tabs">
+        <div class="nav-arrows">
+          <button class="icon-btn" type="button" data-action="back" aria-label="Back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M15 6 9 12l6 6"/></svg></button>
+          <button class="icon-btn" type="button" data-action="forward" aria-label="Forward"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m9 6 6 6-6 6"/></svg></button>
+        </div>
+        <button class="tab" type="button" data-tab="landing"><span class="matrix"></span><span class="label">Landing page copy</span></button>
+        <button class="tab" type="button" data-tab="write"><span class="label">Write Landing …</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20h4l10-10-4-4L4 16v4z"/></svg></button>
+        <button class="tab" type="button" data-tab="starting"><span class="label">Starting conve…</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20h4l10-10-4-4L4 16v4z"/></svg></button>
+        <button class="tab is-on" type="button" data-tab="adjust"><span class="label">Adjust Feature</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20h4l10-10-4-4L4 16v4z"/></svg></button>
+        <button class="icon-btn" type="button" data-action="new-tab" aria-label="New chat">+</button>
+        <div class="tab-tools">
+          <button class="icon-btn" type="button" data-go="pr" aria-label="Branch"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="8" r="2"/><path d="M6 8v8M8 8h6a4 4 0 0 1 4 4"/></svg></button>
+          <button class="icon-btn" type="button" data-action="copy-link" aria-label="Copy link"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 13a5 5 0 0 0 7.5.4l2-2a5 5 0 0 0-7-7l-1.2 1.2"/><path d="M14 11a5 5 0 0 0-7.5-.4l-2 2a5 5 0 0 0 7 7l1.2-1.2"/></svg></button>
+          <span class="faces" aria-hidden="true"><i class="a1">L</i><i class="a3">G</i></span>
+          <button class="icon-btn" type="button" data-action="toggle-rail" aria-label="Toggle changes panel"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M15 4v16"/></svg></button>
+        </div>
+      </div>
+
+      <div class="prbar">
+        <button class="ready" type="button" data-go="pr" style="background:none;color:inherit">#8376 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></button>
+      </div>
+
+      <aside class="sidebar">
+        <button class="org" type="button" data-overlay-open="org">
+          <span class="app-mark" aria-hidden="true">
+            <svg viewBox="0 0 12 12" shape-rendering="crispEdges">
+              <rect fill="currentColor" x="2" y="1" width="2" height="2"/><rect fill="currentColor" x="4" y="1" width="2" height="2"/><rect fill="currentColor" x="6" y="1" width="2" height="2"/><rect fill="currentColor" x="8" y="1" width="2" height="2"/>
+              <rect fill="currentColor" x="2" y="3" width="2" height="2"/>
+              <rect fill="currentColor" x="2" y="5" width="2" height="2"/>
+              <rect fill="currentColor" x="2" y="7" width="2" height="2"/>
+              <rect fill="currentColor" x="2" y="9" width="2" height="2"/><rect fill="currentColor" x="4" y="9" width="2" height="2"/><rect fill="currentColor" x="6" y="9" width="2" height="2"/><rect fill="currentColor" x="8" y="9" width="2" height="2"/>
+            </svg>
+          </span>
+          <b id="org-name">Insulator</b>
+          <svg class="right" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m8 10 4 4 4-4"/></svg>
+        </button>
+        <div class="side-scroll">
+          <button class="row" type="button" data-go="home"><span class="ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z"/></svg></span><span class="label">Home</span><span class="faces"><i class="a1">C</i><i class="a2">J</i><i class="a4">L</i></span></button>
+          <button class="row" type="button" data-go="create"><span class="ico">+</span><span class="label">Create</span></button>
+          <button class="row" type="button" data-overlay-open="palette"><span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="6"/><path d="m20 20-3.5-3.5"/></svg></span><span class="label">Search</span></button>
+          <div class="section-label">Pinned</div>
+          <button class="row" type="button" data-go="chat" data-tab="landing"><span class="label">Scope dynamic API ke…</span><span class="faces"><i class="a5">A</i><i class="a3">M</i></span></button>
+          <div class="section-label">My workspaces</div>
+          <button class="row is-strong" type="button" data-go="chat" data-tab="write"><span class="label">Revamp homepage sections…</span></button>
+          <button class="row run is-selected" type="button" data-go="chat" data-tab="adjust" data-workspace="landing"><span class="label">Landing page copy</span></button>
+          <button class="row" type="button" data-go="chat" data-tab="starting"><span class="label">Investigate workspace cra…</span></button>
+          <button class="row" type="button" data-go="chat"><span class="label">Hide single repo icon</span><span class="dot">G</span></button>
+          <button class="row run" type="button" data-go="chat"><span class="label">Adjusting sidebar color cont…</span></button>
+          <button class="row" type="button" data-go="chat"><span class="label">landing page screenshot tes…</span></button>
+          <button class="row run" type="button" data-go="chat"><span class="label">Add team repo icons</span></button>
+          <button class="row" type="button" data-go="chat"><span class="label">Pre-build snapshots while ty…</span></button>
+          <button class="row" type="button" data-go="pr"><span class="label">Redesign PR page</span></button>
+          <button class="row" type="button" data-go="history"><span class="label">Redesign Home and History …</span></button>
+          <button class="row view-all" type="button" data-go="history"><span class="label">View all →</span></button>
+          <div class="section-label">Team</div>
+          <div class="row team-row"><span class="avatar a1">C</span><span class="label">Charlie Holtz</span></div>
+          <div class="row team-row"><span class="avatar a2">G</span><span class="presence"></span><span class="label">Guillaume</span></div>
+          <div class="row team-row"><span class="avatar a3">L</span><span class="label">Lewis Ellis</span></div>
+        </div>
+        <div class="side-foot">
+          <span class="spacer" style="flex:1"></span>
+          <button class="icon-btn" type="button" data-go="settings" data-settings="account" aria-label="Settings"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/></svg></button>
+          <button class="icon-btn" type="button" data-overlay-open="shortcuts" aria-label="Help">?</button>
+        </div>
+      </aside>
+
+      <aside class="settings-side" id="settings-side">
+        <button class="settings-back" type="button" data-go="chat">‹ Workspaces</button>
+        <div class="settings-title">Settings</div>
+        <div class="set-nav">
+          <input id="settings-search" type="search" placeholder="Search settings" aria-label="Search settings">
+          <div class="gl">Personal</div>
+          <button class="nav" type="button" data-settings="account">Account</button>
+          <button class="nav" type="button" data-settings="appearance">Appearance</button>
+          <button class="nav" type="button" data-settings="agents">Agents</button>
+          <button class="nav" type="button" data-settings="git">Git</button>
+          <button class="nav" type="button" data-settings="experimental">Experimental</button>
+          <div class="gl">Organization</div>
+          <button class="nav" type="button" data-settings="org">General</button>
+          <div class="gl">Repositories</div>
+          <button class="nav" type="button" data-settings="repo">insulator</button>
+        </div>
+      </aside>
+
+      <main class="main">
+        <section class="view" data-view="home">
+          <div class="page">
+            <h1>Home</h1>
+            <p class="lede">Workspaces on this Mac. The matrix shows who is running, waiting, or ready to merge.</p>
+            <div class="home-matrix">
+              <span class="matrix"></span><span class="matrix gold"></span><span class="matrix teal"></span><span class="matrix violet"></span><span class="matrix blue"></span>
+              <div><b>5 active</b><div class="small muted">2 ready to merge · 1 needs you</div></div>
+              <button class="primary right" type="button" data-go="create">New workspace</button>
+            </div>
+            <h2>Recent</h2>
+            <div class="list">
+              <button class="row" type="button" data-go="chat" data-tab="adjust"><span class="matrix"></span><span class="label">Landing page copy</span><span class="meta">#8376 · Ready</span></button>
+              <button class="row" type="button" data-go="chat" data-tab="write"><span class="matrix gold"></span><span class="label">Revamp homepage sections…</span><span class="meta">Running</span></button>
+              <button class="row" type="button" data-go="chat"><span class="matrix teal"></span><span class="label">Adjusting sidebar color cont…</span><span class="meta">10h</span></button>
+              <button class="row" type="button" data-go="history"><span class="label">View all workspaces →</span></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" data-view="home-empty">
+          <div class="empty">
+            <div>
+              <div class="app-mark"><svg viewBox="0 0 12 12" shape-rendering="crispEdges"><rect fill="currentColor" x="2" y="1" width="8" height="2"/><rect fill="currentColor" x="2" y="3" width="2" height="6"/><rect fill="currentColor" x="2" y="9" width="8" height="2"/></svg></div>
+              <h1>No workspaces yet</h1>
+              <p class="muted">Create the first isolated workspace for this repository.</p>
+              <button class="primary" type="button" data-go="create">Create workspace <span class="kbd">⌘N</span></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="view is-on" data-view="chat">
+          <div class="transcript" id="transcript">
+            <div data-thread="adjust">
+              <div class="bubble">lets actually make this the new hero image. <span class="attach">▣ CleanShot 2026-07-30 at 00.52.12@2…</span></div>
+              <div class="prose"><p>I’ll replace the current homepage hero media with this screenshot, preserving its native proportions and the existing edge treatment so it doesn’t crop or stretch. I’m using the marketing-repo and interface-polish guidance to match the current hero structure.</p></div>
+              <button class="tool" type="button" data-action="toggle-tools"><span>›</span> 5 tool calls <span class="right">⎘</span></button>
+              <div class="tool-detail" hidden>
+                <div class="tool">Read HeroHeadline.tsx</div>
+                <div class="tool">Read Screenshot.tsx</div>
+                <div class="tool">Edit apps/marketing/src/app/page.tsx</div>
+              </div>
+              <div style="display:flex"><button class="action" type="button" data-action="commit">Commit and push all changes</button></div>
+              <button class="tool" type="button"><span>›</span> 17 tool calls, 3 messages <span>⑂</span> <span class="right">⎘</span></button>
+              <p><b>Done and pushed.</b></p>
+              <ul class="bullets">
+                <li>New Insulator screenshot is now the hero image.</li>
+                <li>Preserved its native 3462×2128 aspect ratio with a cache-safe asset path.</li>
+                <li>Compressed to a 316 KB WebP.</li>
+                <li>Included the rotating hero headline changes.</li>
+                <li>Commit: <span class="hash">e8d628ed5</span> — <span class="hash">Refresh homepage hero</span></li>
+                <li><button class="link" type="button" data-go="pr">PR #8376 ↗</button></li>
+                <li>Vercel build is running.</li>
+              </ul>
+              <div class="meta-line"><span>2m, 4s</span><span>⎘</span><span>···</span></div>
+              <div class="file-row-chips">
+                <button class="filechip add" type="button" data-go="diff">▣ insulator-app-hero-collaboration.webp <b>+0 −0</b></button>
+                <button class="filechip add" type="button" data-go="diff">▣ insulator-app-hero-full.webp <b>+0 −0</b></button>
+                <button class="filechip" type="button" data-go="diff">✶ HeroHeadline.tsx <b class="add">+2</b> <b class="sub">−7</b></button>
+                <button class="filechip" type="button" data-go="diff">✶ Screenshot.tsx <b class="add">+6</b> <b class="sub">−6</b></button>
+              </div>
+            </div>
+            <div data-thread="landing" hidden>
+              <div class="prose"><p>Scope the dynamic API keys section so the hero and the docs stay in agreement. I’ll keep the copy in the marketing repo and leave the settings screens alone.</p></div>
+              <p class="muted">Waiting on a plan review.</p>
+            </div>
+            <div data-thread="write" hidden>
+              <div class="prose"><p>Drafting the homepage sections so the hero, the feature grid, and the sidebar stay in the same layout.</p></div>
+              <button class="tool" type="button"><span>›</span> 3 tool calls</button>
+            </div>
+            <div data-thread="starting" hidden>
+              <div class="prose"><p>Looking through workspace creation so the empty home state can offer a first workspace without a dead end.</p></div>
+            </div>
+          </div>
+          <div class="queued" id="queued"><em>Queued</em> <span>make the caption match the new crop</span></div>
+          <div class="composer-wrap">
+            <button class="jump" type="button" data-action="jump" aria-label="Jump to latest">⌄</button>
+            <div class="composer">
+              <div class="composer-top">
+                <span class="who"><span class="avatar a3">L</span> Lewis Ellis</span>
+                <textarea id="draft" rows="1" aria-label="Message">what do you think?</textarea>
+                <button class="focus-hint" type="button" data-action="focus-draft">⌘L to focus</button>
+              </div>
+              <div class="composer-bot">
+                <button class="model-btn" type="button" data-overlay-open="model"><span>✶</span> <strong>GPT-5.6 Sol</strong> High</button>
+                <button class="ghost bolt" type="button" data-action="fast" aria-label="Fast mode">⚡</button>
+                <button class="ghost" type="button" data-overlay-open="context" aria-label="Context">▤</button>
+                <span class="grow"></span>
+                <button class="ghost" type="button" data-action="attach" aria-label="Add">+</button>
+                <button class="send" type="button" data-action="send" aria-label="Send">↑</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="view diff" data-view="diff" id="diff-view">
+          <div class="diff-head">
+            <b>apps/marketing/src/app/page.tsx</b>
+            <label class="small muted"><input type="checkbox" id="viewed"> Viewed</label>
+            <span class="grow"></span>
+            <div class="seg" role="group" aria-label="Diff layout">
+              <button type="button" class="is-on" data-action="unified">Unified</button>
+              <button type="button" data-action="split">Split</button>
+            </div>
+          </div>
+          <div class="diff-scroll">
+            <table class="diff-table unified">
+              <tbody>
+                <tr><td class="ln">42</td><td> export function Hero() {</td></tr>
+                <tr class="del"><td class="ln">43</td><td>-  return &lt;img src="/old-hero.png" alt="" /&gt;</td></tr>
+                <tr class="add"><td class="ln">43</td><td>+  return (</td></tr>
+                <tr class="add"><td class="ln">44</td><td>+    &lt;img</td></tr>
+                <tr class="add"><td class="ln">45</td><td>+      src="/insulator-app-hero-light.webp"</td></tr>
+                <tr class="add"><td class="ln">46</td><td>+      alt="Insulator app showing collaborative agent chats"</td></tr>
+                <tr class="add"><td class="ln">47</td><td>+      width={3022}</td></tr>
+                <tr class="add"><td class="ln">48</td><td>+      height={1954}</td></tr>
+                <tr class="add"><td class="ln">49</td><td>+    /&gt;</td></tr>
+                <tr class="add"><td class="ln">50</td><td>+  )</td></tr>
+                <tr><td class="ln">51</td><td> }</td></tr>
+              </tbody>
+            </table>
+            <div class="split">
+              <pre class="before">export function Hero() {
+  return &lt;img src="/old-hero.png" alt="" /&gt;
+}</pre>
+              <pre class="after">export function Hero() {
+  return (
+    &lt;img
+      src="/insulator-app-hero-light.webp"
+      width={3022}
+      height={1954}
+    /&gt;
+  )
+}</pre>
+            </div>
+            <div class="comment">
+              <header><span class="avatar a3">L</span> Lewis Ellis <span class="muted small">on line 46</span></header>
+              Keep the native aspect ratio in the caption too.
+              <div class="row-actions">
+                <button class="btn" type="button" data-action="send-comment">Send to agent</button>
+                <button class="btn" type="button" data-action="resolve">Resolve</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" data-view="pr">
+          <div class="page" style="padding-top:12px">
+            <div class="diff-head" style="padding-left:0;border:0">
+              <h1 style="margin:0">Refresh homepage hero</h1>
+              <span class="pill">#8376</span>
+              <span class="grow"></span>
+              <button class="btn" type="button" data-action="toast" data-toast="Opened on GitHub">Open in GitHub</button>
+              <button class="merge" type="button" data-action="toast" data-toast="Merged #8376">Merge</button>
+            </div>
+            <div class="pr-card">
+              <div class="pr-grid">
+                <div>Branch</div><div class="mono">landing-page-copy → main</div>
+                <div>Review</div><div><button class="link" type="button" data-go="chat" data-rail="review">1 comment unresolved</button></div>
+                <div>Checks</div><div><button class="link" type="button" data-go="chat" data-rail="checks">Vercel · GitHub Actions passing</button></div>
+                <div>Merge</div><div><span class="pill">Ready to merge</span></div>
+              </div>
+            </div>
+            <h2>Description</h2>
+            <p>Replaces the homepage hero with the current app screenshot. Keeps the native 3022×1954 frame, compresses to WebP, and updates the rotating headline beside it.</p>
+            <h2>Activity</h2>
+            <div class="activity">
+              <article><span class="avatar a3">L</span><div><b>Lewis Ellis</b> requested a caption tweak <div class="small muted">12m ago · edited</div></div></article>
+              <article><span class="avatar a2">G</span><div><b>Guillaume</b> approved <div class="small muted">4m ago</div></div></article>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" data-view="create">
+          <div class="create">
+            <div class="create-box">
+              <h1>New workspace</h1>
+              <textarea id="create-prompt" placeholder="What should this workspace do?"></textarea>
+              <div class="create-row">
+                <button class="btn" type="button" id="create-from" data-action="create-menu">Create from <b id="create-source">New branch</b> ▾</button>
+                <div class="menu" id="create-menu">
+                  <button type="button" data-source="New branch">New branch</button>
+                  <button type="button" data-source="Existing branch">Existing branch</button>
+                  <button type="button" data-source="GitHub PR">GitHub PR</button>
+                  <button type="button" data-source="Linear issue">Linear issue</button>
+                </div>
+                <span class="muted">insulator</span>
+                <button class="primary right" type="button" data-action="create-workspace">Create</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="view settings" data-view="settings">
+            <div class="set-page" data-settings-page="account">
+              <h1>Account</h1>
+              <p class="lede">This profile is used on this Mac.</p>
+              <div class="field"><div><b>Name</b><p>Shown on comments and presence.</p></div><input class="input" value="Lewis Ellis" aria-label="Name"></div>
+              <div class="field"><div><b>Email</b><p>lewis@insulator.dev</p></div><span class="avatar a3">L</span></div>
+              <div class="field"><div><b>Notifications</b><p>Ping when an agent is waiting or a plan needs review.</p></div><button class="toggle is-on" type="button" data-action="toggle" aria-pressed="true"><i></i></button></div>
+              <div class="field"><div><b>Notification sound</b><p>Plays when a workspace needs you.</p></div>
+                <select class="select" aria-label="Notification sound"><option>Default</option><option>Quack</option><option>None</option></select>
+              </div>
+              <div class="field"><div><b>Preview</b><p>Play the current sound once.</p></div><button class="btn" type="button" data-action="toast" data-toast="Played notification sound">Test sound</button></div>
+            </div>
+            <div class="set-page" data-settings-page="appearance">
+              <h1>Appearance</h1>
+              <p class="lede">Light matches the desktop app. Dark uses the night tokens.</p>
+              <div class="field"><div><b>Theme</b><p>Applies to this window immediately.</p></div>
+                <div class="seg"><button type="button" data-theme-set="light" id="theme-light">Light</button><button type="button" data-theme-set="dark" class="is-on" id="theme-dark">Dark</button></div>
+              </div>
+              <div class="field"><div><b>Monospace</b><p>Diffs, commits, and shortcuts.</p></div>
+                <select class="select" aria-label="Monospace font"><option>SF Mono</option><option>Geist Mono</option><option>iA Writer Mono</option></select>
+              </div>
+            </div>
+            <div class="set-page is-on" data-settings-page="agents">
+              <h1>Agents</h1>
+              <p class="lede">Insulator runs Claude Code, Codex, Cursor, and OpenCode.</p>
+              <div class="agent-card"><div class="grow"><b>Claude Code</b><p class="muted small">On this Mac · default model Opus 5.5</p></div><span class="pill">Connected</span></div>
+              <div class="agent-card"><div class="grow"><b>Codex</b><p class="muted small">On this Mac · default model GPT-5.6 Sol</p></div><span class="pill">Connected</span></div>
+              <div class="agent-card"><div class="grow"><b>Cursor</b><p class="muted small">Grok 4.7 via Cursor Agent 1.0</p></div><span class="pill">Connected</span></div>
+              <div class="agent-card"><div class="grow"><b>OpenCode</b><p class="muted small">Bundled 2.0</p></div><span class="pill">Connected</span></div>
+            </div>
+            <div class="set-page" data-settings-page="git">
+              <h1>Git</h1>
+              <p class="lede">Branch names, archive, and what gets written into pull requests.</p>
+              <div class="field"><div><b>Automatically rename new branches</b><p>Name the branch from the first message. Turn this off to keep the placeholder.</p></div><button class="toggle is-on" type="button" data-action="toggle"><i></i></button></div>
+              <div class="field"><div><b>Archive on merge</b><p>Leave the sidebar when the pull request merges.</p></div><button class="toggle is-on" type="button" data-action="toggle"><i></i></button></div>
+              <div class="field"><div><b>Delete branch on archive</b><p>Remove the workspace branch when you archive it.</p></div><button class="toggle" type="button" data-action="toggle"><i></i></button></div>
+              <div class="field"><div><b>Include link to workspace in PR description</b><p>So teammates can open the same chat. Moved here from organization preferences.</p></div><button class="toggle" type="button" data-action="toggle"><i></i></button></div>
+            </div>
+            <div class="set-page" data-settings-page="experimental">
+              <h1>Experimental</h1>
+              <p class="lede">These change the sidebar and how a workspace is tested.</p>
+              <div class="field"><div><b>Workspace status matrix</b><p>Show the dot-matrix state in the sidebar, Home, and workspace tabs. You will see it after you go back to Workspaces.</p></div><button class="toggle" type="button" id="matrix-toggle" data-action="matrix"><i></i></button></div>
+              <div class="field"><div><b>Spotlight testing</b><p>Mirror the workspace into the root checkout while you test. One workspace at a time.</p></div><button class="toggle" type="button" data-action="toggle"><i></i></button></div>
+            </div>
+            <div class="set-page" data-settings-page="org">
+              <h1>Organization</h1>
+              <p class="lede">Shown in the switcher and in the iOS app.</p>
+              <div class="field"><div><b>Name</b><p>Insulator</p></div><input class="input" value="Insulator" aria-label="Organization name"></div>
+              <div class="field"><div><b>Avatar</b><p>Used everywhere the org icon appears.</p></div><span class="app-mark"></span></div>
+              <div class="field"><div><b>Automerge</b><p>Merge a pull request when reviews and required checks are green.</p></div><button class="toggle" type="button" data-action="toggle"><i></i></button></div>
+              <div class="field"><div><b>Treat optional checks as blocking</b><p>Optional GitHub checks must pass before merge.</p></div><button class="toggle" type="button" data-action="toggle"><i></i></button></div>
+            </div>
+            <div class="set-page" data-settings-page="repo">
+              <h1>insulator</h1>
+              <p class="lede">Scripts and review guidance for this repository.</p>
+              <div class="seg" id="script-scope" role="group" aria-label="Script scope">
+                <button type="button" class="is-on" data-script-scope="personal">Personal</button>
+                <button type="button" data-script-scope="shared">Shared</button>
+              </div>
+              <div data-script-panel="personal">
+                <p class="lede">On this Mac only. Stored in <span class="mono">.insulator/settings.local.toml</span>.</p>
+                <h2>Scripts</h2>
+                <div class="field"><div><b>Setup</b><p>Runs when a local workspace is created.</p></div></div>
+                <div class="script-box">pnpm install</div>
+                <div class="field"><div><b>Run</b><p>Start Dev and the Run pane.</p></div></div>
+                <div class="script-box">pnpm dev</div>
+                <div class="field"><div><b>Archive</b><p>Cleanup when you archive the workspace.</p></div></div>
+                <div class="script-box">rm -rf node_modules</div>
+              </div>
+              <div data-script-panel="shared" hidden>
+                <p class="lede">Committed for the team in <span class="mono">.insulator/settings.toml</span>. Insulator picks this up after it merges to main.</p>
+                <h2>Scripts</h2>
+                <div class="field"><div><b>Setup</b><p>Shared install for every new workspace.</p></div></div>
+                <div class="script-box">pnpm install --frozen-lockfile</div>
+                <div class="field"><div><b>Run</b><p>Start Dev and the Run pane on this Mac.</p></div></div>
+                <div class="script-box">pnpm dev --port "$INSULATOR_PORT"</div>
+                <div class="field"><div><b>Archive</b></div></div>
+                <div class="script-box">rm -rf .next</div>
+              </div>
+              <h2>Files to copy</h2>
+              <p class="muted small">Gitignored files copied into each new local workspace.</p>
+              <div class="script-box">.env*
+config/*.local.json</div>
+              <h2>Environment variables</h2>
+              <div class="field"><div><b>ANTHROPIC_BASE_URL</b><p>Top-level. Used by local agents.</p></div><span class="mono small">https://api.example.com</span></div>
+              <div class="field"><div><b>LOCAL_AGENT_MODE</b><p>Local only.</p></div><span class="mono small">1</span></div>
+              <h2>Code review preferences</h2>
+              <textarea class="input review-box" aria-label="Review prompt">Prioritize visual regressions, layout shift, and missing alt text.</textarea>
+            </div>
+        </section>
+
+        <section class="view" data-view="routines">
+          <div class="page">
+            <div style="display:flex;align-items:center"><h1>Routines</h1><button class="primary right" type="button" data-go="routine">New routine</button></div>
+            <p class="lede">Run an agent when a pull request opens, on a schedule, or on weekdays.</p>
+            <div class="list">
+              <button class="row" type="button" data-go="routine"><span class="label">Address high severity PRs</span><span class="pill">Active</span></button>
+              <button class="row" type="button" data-go="routine"><span class="label">Weekday snapshot</span><span class="meta">Mon–Fri 9:00</span></button>
+              <button class="row" type="button" data-go="routine"><span class="label">Label follow-up</span><span class="meta">Paused</span></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" data-view="routine">
+          <div class="page">
+            <h1>Address high severity PRs</h1>
+            <div class="routine-head">
+              <button class="toggle is-on" type="button" data-action="toggle" aria-label="Active"><i></i></button>
+              <span>Active</span>
+              <span class="muted">|</span>
+              <button class="btn" type="button">insulator ▾</button>
+              <span class="avatar a5">T</span>
+              <span class="muted">By Tywinner</span>
+            </div>
+            <h2>Triggers</h2>
+            <div class="trigger">
+              <div class="trigger-top">
+                <span>⑂</span>
+                <span class="chip">Pull request</span>
+                <span class="chip">opened</span>
+                <button class="right icon-btn" type="button" aria-label="Remove trigger">×</button>
+              </div>
+              <div class="filters">
+                <span class="chip"><span>🏷</span> Label <span class="muted">is</span> <span class="dot-label"></span> severity:high <button type="button" aria-label="Remove">×</button></span>
+                <span class="chip">Author <span class="muted">is</span> tywenk <button type="button" aria-label="Remove">×</button></span>
+                <button class="btn" type="button">+ Filter</button>
+              </div>
+            </div>
+            <button class="btn" type="button">+ Add trigger</button>
+          </div>
+        </section>
+
+        <section class="view" data-view="loadouts">
+          <div class="page">
+            <h1>Loadouts</h1>
+            <p class="lede">Share a model mix. Teammates equip it in one click.</p>
+            <div class="starfield">
+              <div class="loadout">
+                <header>
+                  <span class="app-mark"><svg viewBox="0 0 12 12"><rect fill="currentColor" x="2" y="1" width="8" height="2"/><rect fill="currentColor" x="2" y="3" width="2" height="6"/><rect fill="currentColor" x="2" y="9" width="8" height="2"/></svg></span>
+                  <button class="equip" type="button" data-action="toast" data-toast="Equipped Jackson's loadout">↓ Equip</button>
+                </header>
+                <div class="load-title"><span class="avatar a2">J</span> Jackson's loadout</div>
+                <div class="load-grid">
+                  <article><div class="pixel-bug">▣</div><div><h3>Fable 5.1</h3><p>High</p></div></article>
+                  <article><div style="font-size:28px;color:#7aa2ff">☁</div><div><h3>GPT-6 Astra</h3><p>High</p></div></article>
+                  <article><div style="font-size:28px;color:#7aa2ff">☁</div><div><h3>GPT-5.6 Sol</h3><p>High ⚡</p></div></article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" data-view="dashboard">
+          <div class="page">
+            <h1>Dashboard</h1>
+            <p class="lede">Today across insulator.</p>
+            <div class="cards">
+              <div class="card"><div class="n">5</div><div class="l">Agents running</div></div>
+              <div class="card"><div class="n">2</div><div class="l">Ready to merge</div></div>
+              <div class="card"><div class="n">14</div><div class="l">Checks green</div></div>
+              <div class="card"><div class="n">3</div><div class="l">Waiting on you</div></div>
+            </div>
+            <h2>Status</h2>
+            <div class="home-matrix">
+              <span class="matrix"></span><span class="matrix gold"></span><span class="matrix"></span><span class="matrix violet"></span>
+              <span>Landing page copy is ready. Revamp homepage sections is still writing.</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" data-view="history">
+          <div class="page">
+            <h1>All workspaces</h1>
+            <input class="input" style="width:100%;margin:8px 0" placeholder="Filter by branch, repo, or PR" aria-label="Filter workspaces">
+            <div class="filters-inline" id="history-filters">
+              <button class="chip is-on" type="button" data-filter="active">Active</button>
+              <button class="chip" type="button" data-filter="archived">Archived</button>
+              <button class="chip" type="button" data-filter="ready">Ready to merge</button>
+            </div>
+            <div class="list" id="history-list">
+              <button class="row" type="button" data-go="chat"><span class="matrix"></span><span class="label">Landing page copy</span><span class="meta">#8376</span></button>
+              <button class="row" type="button" data-go="chat"><span class="label">Revamp homepage sections</span><span class="meta">Running</span></button>
+              <div class="row" data-archived="true"><span class="label">Hero experiment</span><span class="meta">Archived</span><button class="btn" type="button" data-action="restore">Restore</button></div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <aside class="rail is-term-open" id="rail">
+        <div class="rail-status">
+          <span class="ready">▲ Ready to merge</span>
+          <button class="merge" type="button" data-go="pr">⎇ Merge</button>
+        </div>
+        <div class="rail-tabs">
+          <button class="text-tab" type="button" data-rail="files">All files</button>
+          <button class="rail-tab is-on" type="button" data-rail="changes">Changes <span class="muted">74</span></button>
+          <button class="rail-tab" type="button" data-rail="checks">Checks</button>
+          <button class="rail-tab" type="button" data-rail="review">◉ Review</button>
+        </div>
+        <div class="rail-panel is-on" data-rail-panel="changes" id="file-list">
+          <button class="frow" type="button" data-go="diff" data-file="page"><span class="path">apps/marketing/src/ap…</span><span class="name">page.tsx</span><span class="counts"><span class="count pos">+53</span><span class="count neg">−46</span></span></button>
+          <button class="frow" type="button" data-go="diff"><span class="path">…</span><span class="name">AgentOrchestrationDemo.tsx</span><span class="counts"><span class="count pos">+248</span></span></button>
+          <button class="frow" type="button" data-go="diff"><span class="path">marketing/…</span><span class="name">AnywhereDemo.tsx</span><span class="counts"><span class="count pos">+16</span></span></button>
+          <button class="frow" type="button" data-go="diff"><span class="path">marke…</span><span class="name">BecomeAInsulator.tsx</span><span class="counts"><span class="count pos">+35</span></span></button>
+          <button class="frow" type="button" data-go="diff"><span class="path">ma…</span><span class="name">CloudBetaSignupForm.tsx</span><span class="counts"><span class="count neg">−157</span></span></button>
+          <button class="frow" type="button" data-go="diff"><span class="path">marketin…</span><span class="name">CloudBrailleVideo.tsx</span><span class="counts"><span class="count neg">−72</span></span></button>
+          <button class="frow" type="button" data-go="diff"><span class="path">marketi…</span><span class="name">CloudInlineLoader.tsx</span><span class="counts"><span class="count neg">−40</span></span></button>
+          <button class="frow" type="button" data-go="diff"><span class="path">mark…</span><span class="name">CloudAsciiBackdrop.tsx</span><span class="counts"><span class="count pos">+481</span></span></button>
+          <button class="frow" type="button" data-go="diff"><span class="path">marketing/src/co…</span><span class="name">CTA.tsx</span><span class="counts"><span class="count pos">+30</span><span class="count neg">−11</span></span></button>
+          <button class="frow" type="button" data-go="diff"><span class="path">marketi…</span><span class="name">DownloadButton.tsx</span><span class="counts"><span class="count pos">+4</span><span class="count neg">−2</span></span></button>
+          <button class="frow" type="button" data-go="diff"><span class="path">marketin…</span><span class="name">FeatureSections.tsx</span><span class="counts"><span class="count pos">+380</span></span></button>
+        </div>
+        <div class="rail-panel" data-rail-panel="files">
+          <button class="frow" type="button"><span class="name">apps/</span></button>
+          <button class="frow tree-item" type="button" data-go="diff"><span class="name">marketing/src/app/page.tsx</span></button>
+          <button class="frow tree-item" type="button"><span class="name">marketing/src/components/</span></button>
+          <button class="frow" type="button"><span class="name">packages/</span></button>
+          <button class="frow" type="button"><span class="name">.context/</span></button>
+        </div>
+        <div class="rail-panel" data-rail-panel="checks">
+          <div class="check"><span class="pill">Git</span><div><b>Clean, 1 ahead of main</b><p>landing-page-copy</p></div></div>
+          <div class="check"><span class="pill">CI</span><div><b>GitHub Actions</b><p>build · 2m 14s</p></div></div>
+          <div class="check"><span class="pill">Deploy</span><div><b>Vercel preview</b><p>Ready</p></div></div>
+          <div class="check"><span class="pill wait">Comments</span><div><b>1 unresolved</b><p>Caption on the hero</p></div></div>
+          <div class="check"><span class="pill">Todos</span><div><b>None open</b><p>Merge is not blocked</p></div></div>
+          <div class="row-actions" style="padding:10px">
+            <button class="btn" type="button" data-action="toast" data-toast="Sent failing checks to the agent">Fix errors</button>
+            <button class="btn" type="button" data-action="toast" data-toast="Pulled latest">Pull latest</button>
+          </div>
+        </div>
+        <div class="rail-panel" data-rail-panel="review">
+          <div class="check"><span class="sev high">HIGH</span><div><b>Hero can overflow the fold</b><p>The 3022×1954 frame needs the same mask on small windows.</p></div></div>
+          <div class="check"><span class="sev med">MED</span><div><b>Alt text drops the changes panel</b><p>The public caption mentions chats and the changes panel.</p></div></div>
+          <div class="check"><span class="sev low">LOW</span><div><b>Compression comment</b><p>316 KB is stated twice.</p></div></div>
+          <div class="row-actions" style="padding:10px"><button class="btn" type="button" data-go="diff">Open diff</button></div>
+        </div>
+        <div class="rail-bottom">
+          <button class="run-head" type="button" data-action="toggle-run"><span id="run-chev">▸</span> Run</button>
+          <div class="run-body mono" id="run-log">
+            <div>$ pnpm dev</div>
+            <div>ready on http://localhost:5173</div>
+            <div class="muted">INSULATOR_PORT=5173</div>
+          </div>
+          <div class="term-head">
+            <button class="term-tab" type="button" data-action="toggle-term">☁ Terminal</button>
+            <button class="icon-btn" type="button" aria-label="New terminal">+</button>
+            <span class="grow"></span>
+            <button class="icon-btn" type="button" data-action="toggle-term" aria-label="Run">▶</button>
+            <button class="icon-btn" type="button">▾</button>
+          </div>
+          <div class="term-body" id="term-body">
+            <div class="play">▶</div>
+            <button class="start" type="button" data-action="start-dev">Start Dev <kbd>⌘R</kbd></button>
+            <div class="hint">Test your changes here.</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="phone-wrap" id="phone-wrap">
+      <div class="phone" id="phone">
+        <div class="phone-status"><span>9:41</span><span>● ● LTE</span></div>
+        <section class="view" data-ios="list">
+          <div class="ios-top">
+            <span class="avatar a1">C</span>
+            <button class="ios-pill" type="button" data-overlay-open="org">Insulator ▾</button>
+          </div>
+          <div class="ios-scroll">
+            <div class="ios-label">Pinned</div>
+            <button class="ios-row" type="button" data-go="ios-chat"><span class="matrix"></span><span><b>iOS App Redesign</b><small>Insulator Native</small></span><span class="when">Now</span></button>
+            <button class="ios-row" type="button" data-go="ios-chat"><span class="matrix teal"></span><span><b>Welcome Screen Tweaks</b><small>Insulator Native</small></span><span class="when">2m</span></button>
+            <button class="ios-row" type="button" data-go="ios-chat"><span class="matrix gold"></span><span><b>iPhone Duo Adaptation</b><small>Insulator Native</small></span><span class="when">1h</span></button>
+            <button class="ios-row" type="button" data-go="ios-chat"><span class="matrix"></span><span><b>Payment Integration</b><small>Insulator Native</small></span><span class="when">1h</span></button>
+            <button class="ios-row" type="button" data-go="ios-chat"><span class="matrix violet"></span><span><b>User Management</b><small>Insulator Native</small></span><span class="when">1h</span></button>
+            <button class="ios-row" type="button" data-go="ios-merge"><span class="matrix violet"></span><span><b>Icons Details Update</b><small>Insulator Native</small></span><span class="when">1h</span></button>
+          </div>
+        </section>
+        <section class="view" data-ios="chat">
+          <div class="ios-top">
+            <button type="button" data-go="ios-list">‹ List</button>
+            <b>Landing page copy</b>
+            <button type="button" data-go="ios-merge">Merge</button>
+          </div>
+          <div class="ios-chat">
+            <div class="ios-msg user">lets actually make this the new hero image.</div>
+            <div class="ios-msg agent">Done and pushed. PR #8376 is ready to merge. Vercel is green.</div>
+          </div>
+          <div class="queue" id="ios-queue">
+            <div class="q-item" draggable="true"><button type="button" data-move="up" aria-label="Move up">↑</button><span class="q-label">Caption pass</span><button type="button" data-move="down" aria-label="Move down">↓</button></div>
+            <div class="q-item" draggable="true"><button type="button" data-move="up" aria-label="Move up">↑</button><span class="q-label">Check the fold on a phone</span><button type="button" data-move="down" aria-label="Move down">↓</button></div>
+          </div>
+          <div class="ios-compose">
+            <textarea id="ios-draft" rows="1" placeholder="Message"></textarea>
+          </div>
+        </section>
+        <section class="view" data-ios="merge">
+          <div class="ios-top"><button type="button" data-go="ios-chat">‹ Chat</button><b>#8376</b><span></span></div>
+          <div class="ios-chat">
+            <div class="ios-msg agent">Refresh homepage hero is ready. Checks are green and Guillaume approved.</div>
+          </div>
+          <div class="sheet-ios">
+            <div class="handle"></div>
+            <b>Ready to merge</b>
+            <p class="small" style="color:#aeaeb2">landing-page-copy → main</p>
+            <button class="merge" type="button" data-action="toast" data-toast="Merged from iPhone" style="width:100%;justify-content:center;margin-top:10px">Merge pull request</button>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="overlay" data-overlay="index">
+      <div class="backdrop" data-overlay-close></div>
+      <div class="index">
+        <header><b>Screens</b>
+          <div class="seg"><button type="button" data-theme-set="light" id="idx-light">Light</button><button type="button" data-theme-set="dark" class="is-on" id="idx-dark">Dark</button></div>
+        </header>
+        <div class="body">
+          <div class="gl">Desktop</div>
+          <button class="jump-screen" type="button" data-go="home">Home</button>
+          <button class="jump-screen" type="button" data-go="home-empty">Home, empty</button>
+          <button class="jump-screen" type="button" data-go="chat" data-rail="changes">Workspace chat</button>
+          <button class="jump-screen" type="button" data-go="diff">Diff</button>
+          <button class="jump-screen" type="button" data-go="chat" data-rail="checks">Checks</button>
+          <button class="jump-screen" type="button" data-go="chat" data-rail="review">Review</button>
+          <button class="jump-screen" type="button" data-go="chat" data-rail="files">All files</button>
+          <button class="jump-screen" type="button" data-go="chat" data-footer="run">Run</button>
+          <button class="jump-screen" type="button" data-go="chat" data-footer="terminal">Terminal</button>
+          <button class="jump-screen" type="button" data-go="pr">Pull request</button>
+          <button class="jump-screen" type="button" data-go="create">Create workspace</button>
+          <button class="jump-screen" type="button" data-go="routines">Routines</button>
+          <button class="jump-screen" type="button" data-go="routine">Routine editor</button>
+          <button class="jump-screen" type="button" data-go="loadouts">Loadouts</button>
+          <button class="jump-screen" type="button" data-go="dashboard">Dashboard</button>
+          <button class="jump-screen" type="button" data-go="history">All workspaces</button>
+          <div class="gl">Settings</div>
+          <button class="jump-screen" type="button" data-go="settings" data-settings="agents">Agents</button>
+          <button class="jump-screen" type="button" data-go="settings" data-settings="git">Git</button>
+          <button class="jump-screen" type="button" data-go="settings" data-settings="appearance">Appearance</button>
+          <button class="jump-screen" type="button" data-go="settings" data-settings="experimental">Experimental</button>
+          <button class="jump-screen" type="button" data-go="settings" data-settings="repo">Repository</button>
+          <div class="gl">Overlays</div>
+          <button class="jump-screen" type="button" data-overlay-open="palette">Command palette</button>
+          <button class="jump-screen" type="button" data-overlay-open="search">Search in files</button>
+          <button class="jump-screen" type="button" data-overlay-open="model">Model picker</button>
+          <button class="jump-screen" type="button" data-overlay-open="mcp">MCP servers</button>
+          <button class="jump-screen" type="button" data-overlay-open="shortcuts">Keyboard shortcuts</button>
+          <button class="jump-screen" type="button" data-overlay-open="org">Organization switcher</button>
+          <div class="gl">iPhone</div>
+          <button class="jump-screen" type="button" data-go="ios-list">Workspace list</button>
+          <button class="jump-screen" type="button" data-go="ios-chat">Chat and queue</button>
+          <button class="jump-screen" type="button" data-go="ios-merge">Merge sheet</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" data-overlay="palette">
+      <div class="backdrop" data-overlay-close></div>
+      <div class="palette" role="dialog" aria-label="Command palette">
+        <header><span>⌕</span><input id="palette-input" placeholder="Search workspaces and actions"></header>
+        <div id="palette-list">
+          <button class="pal-item" type="button" data-go="chat" data-tab="adjust"><span class="matrix"></span> Landing page copy <kbd>⌘1</kbd></button>
+          <button class="pal-item" type="button" data-go="home">Home</button>
+          <button class="pal-item" type="button" data-go="create">Create workspace <kbd>⌘N</kbd></button>
+          <button class="pal-item" type="button" data-overlay-open="search">Search in files <kbd>⌘⇧F</kbd></button>
+          <button class="pal-item" type="button" data-go="settings" data-settings="agents">Settings <kbd>⌘,</kbd></button>
+          <button class="pal-item" type="button" data-go="pr">Pull request #8376</button>
+          <button class="pal-item" type="button" data-go="routines">Routines</button>
+          <button class="pal-item" type="button" data-go="dashboard">Dashboard</button>
+          <button class="pal-item" type="button" data-overlay-open="shortcuts">Keyboard shortcuts <kbd>⌘/</kbd></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" data-overlay="search">
+      <div class="backdrop" data-overlay-close></div>
+      <div class="pop" role="dialog" aria-label="Search in files">
+        <header><span>⌕</span><input id="file-query" value="useQuery" aria-label="Search query"></header>
+        <div class="search-tools">
+          <button type="button" data-search-flag="case" class="is-on">Aa</button>
+          <button type="button" data-search-flag="word">ab</button>
+          <button type="button" data-search-flag="regex">.*</button>
+          <span class="right muted" id="search-count">7 matches in 3 files</span>
+        </div>
+        <div class="body" id="search-results">
+          <div class="match">
+            <h3><span class="sev" style="background:#3178c6;color:#fff">TS</span> FileAPI.ts <em>src/client/frontends/desktop/core/src/insulator/</em> <span class="right">3</span></h3>
+            <pre><span class="hit">useQuery,</span>
+export function useWorkspaceFiles(target: WorkspaceFileTarget) {
+  return useQuery({</pre>
+          </div>
+          <div class="match">
+            <h3><span class="sev" style="background:#3178c6;color:#fff">TS</span> FilePickerDialog.tsx <em>src/client/frontends/desktop/ui/src/components/</em> <span class="right">2</span></h3>
+            <pre>import { useFuzzyFileSearch } from "@core/insulator/FileAPI";
+const { data: searchResults, isFetching } = useFuzzyFileSearch(</pre>
+          </div>
+          <div class="match">
+            <h3><span class="sev" style="background:#3178c6;color:#fff">TS</span> hooks.ts <em>src/client/services/git/src/</em> <span class="right">2</span></h3>
+            <pre>return useQuery(gitQueries.status(workspaceId));
+return useQuery(gitQueries.branches(workspaceId));</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" data-overlay="model">
+      <div class="backdrop" data-overlay-close></div>
+      <div class="pop" role="dialog" aria-label="Model picker">
+        <header><span>⌕</span><input id="model-query" placeholder="Search models"></header>
+        <div class="body" id="model-list">
+          <button class="model-item is-on" type="button" data-model="GPT-5.6 Sol">GPT-5.6 Sol <span class="muted">High</span> <span class="right">⚡</span></button>
+          <button class="model-item" type="button" data-model="GPT-6.1 Sol">GPT-6.1 Sol</button>
+          <button class="model-item" type="button" data-model="GPT-6 Sol">GPT-6 Sol</button>
+          <button class="model-item" type="button" data-model="GPT-6 Luna">GPT-6 Luna</button>
+          <button class="model-item" type="button" data-model="Claude Opus 5.5">Claude Opus 5.5</button>
+          <button class="model-item" type="button" data-model="Claude Sonnet 5.5">Claude Sonnet 5.5</button>
+          <button class="model-item" type="button" data-model="Fable 5.1">Fable 5.1</button>
+          <button class="model-item" type="button" data-model="Grok 4.7">Grok 4.7</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" data-overlay="mcp">
+      <div class="backdrop" data-overlay-close></div>
+      <div class="pop" role="dialog" aria-label="MCP servers">
+        <header><b>MCP servers</b></header>
+        <div class="body">
+          <div class="check"><span class="pill">14</span><div><b>Linear</b><p>Connected</p></div></div>
+          <div class="check"><span class="pill">2</span><div><b>Context7</b><p>Connected</p></div></div>
+          <div class="check"><span class="pill">8</span><div><b>Slack</b><p>Connected</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" data-overlay="context">
+      <div class="backdrop" data-overlay-close></div>
+      <div class="pop" role="dialog" aria-label="Context">
+        <header><b>Context</b><span class="right muted">18%</span></header>
+        <div class="body context-pop" style="padding:12px 16px 16px">
+          <p class="muted">Repository instructions, the hero screenshot, and 4 files are in the window.</p>
+          <button class="btn" type="button" data-overlay-open="mcp">MCP servers</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" data-overlay="shortcuts">
+      <div class="backdrop" data-overlay-close></div>
+      <div class="sheet" role="dialog" aria-label="Keyboard shortcuts">
+        <header><b>Keyboard shortcuts</b><button class="right" type="button" data-overlay-close>Close</button></header>
+        <div class="body shortcuts">
+          <div><span>New workspace</span><kbd>⌘N</kbd></div>
+          <div><span>Command palette</span><kbd>⌘K</kbd></div>
+          <div><span>Search in files</span><kbd>⌘⇧F</kbd></div>
+          <div><span>New chat</span><kbd>⌘T</kbd></div>
+          <div><span>Diff</span><kbd>⌘⇧D</kbd></div>
+          <div><span>Create PR</span><kbd>⌘⇧P</kbd></div>
+          <div><span>Review</span><kbd>⌘⇧R</kbd></div>
+          <div><span>Merge</span><kbd>⌘⇧M</kbd></div>
+          <div><span>Toggle sidebar</span><kbd>⌘B</kbd></div>
+          <div><span>Toggle changes</span><kbd>⌥⌘B</kbd></div>
+          <div><span>Focus terminal</span><kbd>⌃`</kbd></div>
+          <div><span>Start Dev</span><kbd>⌘R</kbd></div>
+          <div><span>Settings</span><kbd>⌘,</kbd></div>
+          <div><span>This list</span><kbd>⌘/</kbd></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" data-overlay="org">
+      <div class="backdrop" data-overlay-close></div>
+      <div class="pop" role="dialog" aria-label="Switch organization">
+        <header><b>Organizations</b></header>
+        <button class="org-item" type="button" data-org="Insulator"><span class="app-mark"></span> Insulator <span class="pill right">Local</span></button>
+        <div style="border-top:1px solid var(--border);margin-top:6px;padding:6px">
+          <button class="org-item" type="button" data-go="settings" data-settings="account">Settings</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="toast" id="toast" hidden></div>
+  <script src="prototype.js"></script>
+</body>
+</html>
